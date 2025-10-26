@@ -6,6 +6,6 @@
 #Ignore output folders
 bin/
 target/
-
+test-output/
 #Ignore logs
 *.log
