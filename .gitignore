@@ -1,0 +1,11 @@
+#Ignore Eclipse-specific files
+.classpath
+.project
+.settings/
+
+#Ignore output folders
+bin/
+target/
+
+#Ignore logs
+*.log
