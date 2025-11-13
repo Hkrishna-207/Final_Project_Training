@@ -1,5 +1,6 @@
 package cognizant.com.finalProject.zigweels.com;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -15,7 +16,7 @@ public class UpcomingHondaBikes {
 
 	WebDriver driver;
 	
-	//@FindBy(xpath = "//a[text()='Honda']")
+	
 	@FindBy(linkText = "Honda")
 	WebElement honda;
 	
@@ -28,30 +29,46 @@ public class UpcomingHondaBikes {
 	}
 	
 	
-	public void clickOnHonda() {
-		
-//		JavascriptExecutor je=(JavascriptExecutor)driver;
-//		je.executeScript("window.scrollTo(0,500);");
-//		driver.findElement(By.linkText("Honda"))
+	public Object[][] clickOnHonda() {
+
 		Actions act=new Actions(driver);
 		act.moveToElement(honda).click().perform();
 		
 		List<WebElement> hondaList=driver.findElements(By.xpath("//ul[@id='modelList']/li"));
-		for(WebElement element:hondaList) {
-			System.out.println(element.getText());
-		}
 		
 		List<WebElement> bikeModel=driver.findElements(By.xpath("//ul[@id='modelList']/li/div/div/a"));
-		List<WebElement> bikePrice=driver.findElements(By.xpath("//ul[@id='modelList']/li/div/div/div[1]"));
+		List<WebElement> prices=driver.findElements(By.xpath("//ul[@id='modelList']/li/div/div/div[1]"));
 		List<WebElement> expLaunchDate=driver.findElements(By.xpath("//ul[@id='modelList']/li/div/div/div[2]"));
 		
 		System.out.println("==================================");
 		
+		List<String> bikeModels=new ArrayList<String>();
+		List<String> bikePrices=new ArrayList<String>();
+		List<String> launchDate=new ArrayList<String>();
+		
 		for(int i=0;i<hondaList.size();i++) {
-			System.out.println("Bike Model: "+bikeModel.get(i).getText());
-			System.out.println("Bike Price: "+bikePrice.get(i).getText());
-			System.out.println("Expected Launch Date: "+expLaunchDate.get(i).getText());
-			System.out.println("-------------------");
+			
+			if((Integer.parseInt(hondaList.get(i).getAttribute("data-price")))<400000){
+//				System.out.println("Bike Model: "+bikeModel.get(i).getText());
+//				System.out.println("Bike Price: "+prices.get(i).getText());
+//				System.out.println(expLaunchDate.get(i).getText());
+//				System.out.println("-------------------");
+				bikeModels.add(bikeModel.get(i).getText());
+				bikePrices.add(prices.get(i).getText());
+				launchDate.add(expLaunchDate.get(i).getText());
+		
+			}
 		}
+		Object[][] data=new Object[bikeModels.size()+1][3];
+		data[0][0]="Bike Model";
+		data[0][1]="Bike Price";
+		data[0][2]="Expected Launch";
+		
+		for(int i=0;i<bikeModels.size();i++) {
+			data[i+1][0]=bikeModels.get(i);
+			data[i+1][1]=bikePrices.get(i);
+			data[i+1][2]=launchDate.get(i);
+		}
+		return data;
 	}
 }

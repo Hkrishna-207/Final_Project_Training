@@ -1,0 +1,24 @@
+
+<suite name="INBSuite">
+    <listeners>
+        <listener class-name="listenersPack.ListenerClass"/>
+    </listeners>
+
+    <test name="BikesTest">
+        <classes>
+            <class name="cognizant.com.finalProject.zigweels.com.TestBikes"/>
+        </classes>
+    </test>
+
+    <test name="CarsTest">
+        <classes>
+            <class name="cognizant.com.finalProject.zigweels.com.TestCars"/>
+        </classes>
+    </test>
+
+    <test name="LoginTest">
+        <classes>
+            <class name="cognizant.com.finalProject.zigweels.com.TestLogin"/>
+        </classes>
+    </test>
+</suite>

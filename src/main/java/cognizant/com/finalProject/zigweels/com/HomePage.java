@@ -23,7 +23,7 @@ public class HomePage {
 
 	public void clickOnNewBike() {
 		Actions act=new Actions(driver);
-		act.moveToElement(newBike).perform();;
+		act.moveToElement(newBike).perform();
 	}
 	
 	public void clickOnUpcomingBikes() {

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="INBSuite">
+	<listeneres>
+		 <listener class-name="cognizant.com.finalProject.zigweels.com.ListenerClass"/>
+	</listeneres>
+	
+	<test name="INBTest" >
+		<classes>
+			<class name="cognizant.com.finalProject.zigweels.com.TestBikes"/>
+			<class name="cognizant.com.finalProject.zigweels.com.TestCars"/>
+			<class name="cognizant.com.finalProject.zigweels.com.TestLogin"/>
+		</classes>
+	</test>
+</suite>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="INBSuite" >
+	<listeners>
+			<listener class-name="cognizant.com.finalProject.zigweels.com.ListenerClass"/>
+	</listeners>
+	
+	<test name="INBTest">
+		<classes>
+			<class name="cognizant.com.finalProject.zigweels.com.TestHomePage"/>
+		</classes>
+	</test>
+</suite>
